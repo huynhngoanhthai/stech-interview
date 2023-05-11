@@ -182,28 +182,27 @@ Trong API mình có sử dụng chức năng Variable của POSTMAN để tiết
     }
 }
   
-  ````
+  ```
   
 - **ERROR**:
-  
+ 
   - api sẽ bât lỗi nếu email trung với email đã tồn tại trong cơ sơ dữ liệu
-  
    ```json
-          {
+      {
     "success": false,
     "statusCode": 400,
     "message": "email is supplicated"
-}
-  ```    
+      }
+    ```    
   
   - đăng mật khẩu phải có tử 6-30 kí tự
-  
   ```json
    {
     "success": false,
     "message": "users validation failed: password: Must be at least 6 character"
   }
-  ```   
+    ```   
+  
 ### [**🟡 2. Login**](#2-login)
 
 - **Purpose**: Xử lý yêu cầu đăng ky của user gửi tới.
@@ -236,6 +235,13 @@ Trong API mình có sử dụng chức năng Variable của POSTMAN để tiết
   
   - **ERROR**:
   - email hoặc password ko khớp thì sẽ báo lỗi 
+    ```json
+      {
+        "success": false,
+        "statusCode": 403,
+        "message": "email or password wrong"
+    }
+      ```
 
 
 ### [**🟡 3.  upload image**](#3-upload-image)
@@ -266,36 +272,37 @@ Trong API mình có sử dụng chức năng Variable của POSTMAN để tiết
   ```
 - **ERROR**:
   - người dùng phải đăng nhập mới sự dụng được chức năng này nếu không đăng nhập sẽ báo lỗi 
-
   ```json
         {
           "success": false,
           "statusCode": 401,
           "message": "You are not logged in! Please log in to get access."
       }
-  ```    
-    +khi đăng nhập thành công bạn sẽ được trả về một token bạn hải lưu token đo ở chỗ authorization, chon Type Bearer Token, sao đó nhập vào ô Token
+     ```    
+  - người dùng phải tải ảnh lên là một file ảnh có đuôi phải là ".jbg", ".png", ".gif", ".jpeg",".jpg"
+       ```json
+          {
+      "success": false,
+      "statusCode": 400,
+      "message": "it isn't image"
+      }
+     ```   
+
+  - người dùng không thể tải anh với kích thước lớn hơn 10MB
+      ```json
+        {
+        "success": false,
+        "statusCode": 400,
+        "message": "File too large"
+          }
+     ``` 
+   - **Authorization**:
+          +khi đăng nhập thành công bạn sẽ được trả về một token bạn hải lưu token đo ở chỗ authorization, chon Type Bearer Token, sao đó nhập vào ô Token
       <p align="center">
         <img src="./photo/postmanToken.png"/>
     </p>
     <h3 align="center">
   
-  - người dùng phải tải ảnh lên là một file ảnh có đuôi phải là ".jbg", ".png", ".gif", ".jpeg",".jpg"
-    ```json
-      {
-    "success": false,
-    "statusCode": 400,
-    "message": "it isn't image"
-}
-  ```    
-  - người dùng không thể tải anh với kích thước lớn hơn 10MB
-     ```json
-   {
-    "success": false,
-    "statusCode": 400,
-    "message": "File too large"
-}
-  ```    
   
 
 ### [**🟢 4.  history upload user**](#4-history)
@@ -358,13 +365,13 @@ Trong API mình có sử dụng chức năng Variable của POSTMAN để tiết
 - **Body**: 
   
 - **Respone**:
-```json
-      {
-    "success": true,
-}
-      ```
-
-  - **ERROR**:
+    ```json
+          {
+        "success": true,
+    }
+    ```
+      
+- **ERROR**:
   - người dùng phải đăng nhập mới sự dụng được chức năng này nếu không đăng nhập sẽ báo lỗi 
 
   ```json
@@ -374,11 +381,12 @@ Trong API mình có sử dụng chức năng Variable của POSTMAN để tiết
           "message": "You are not logged in! Please log in to get access."
       }
   ```    
-  - nếu người dùng không sở hưu file đó thì không thể xóa 
-  ```json
-  {
-    "success": false,
-    "statusCode": 401,
-    "message": "you can't delete files you don't own"
-}
-    ```    
+      
+  - nếu người dùng không sở hưu file đó thì không thể xóa  
+    ```json
+      {
+        "success": false,
+        "statusCode": 401,
+        "message": "you can't delete files you don't own"
+      }
+      ```    
