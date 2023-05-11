@@ -136,11 +136,7 @@ Trong API mình có sử dụng chức năng Variable của POSTMAN để tiết
 |-----------------------|-----------------------------------------------------------------------------------|
 | ENDPOINT_URL          | Tên đường dẫn chung của đồ án - http://localhost:3000/api/v1  |
 
-để biết được hostname bạn sự dụng lệnh trong cmd:
-> ipconfig
-sao đo tìm dòng 
->  IPv4 Address. . . . . . . . . . . : 192.168...
-đó là hostname của bạn 
+
 
 ### [**🟡 1. register**](#1-register)
 
