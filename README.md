@@ -334,7 +334,8 @@ sao đo tìm dòng
         "http://localhost:3000/photo-1683780599680.jpg"
     ]
 }
-      ```
+  ```
+      
   - **ERROR**:
     - người dùng phải đăng nhập mới sự dụng được chức năng này nếu không đăng nhập sẽ báo lỗi 
 
